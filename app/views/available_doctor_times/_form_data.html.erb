@@ -1,0 +1,34 @@
+<div class="container mt-3">
+  <div class="row"> 
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <%= form_for(@available_time, html: { class: "form-group" }) do |f| %>
+        <div class="field">
+          <%= f.label :custom_availabe_date %>
+          <%= f.text_field :custom_availabe_date, class: 'form-control set-date-picker' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :from_time %>
+          <%= f.text_field :from_time, class: 'form-control set-time-picker' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :to_time %>
+          <%= f.text_field :to_time, class: 'form-control set-time-picker' %>
+        </div>
+
+        <div class="field mt-2">
+          <%= f.label 'Available?' %><br />
+          <%= f.radio_button :no_available, false, checked: true %>Yes
+          <%= f.radio_button :no_available, true %>No
+        </div>
+
+        <div class="field mt-2">
+          <%= f.submit "Submit", class: 'btn btn-success' %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>

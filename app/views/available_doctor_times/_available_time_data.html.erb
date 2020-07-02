@@ -1,0 +1,9 @@
+<tr>
+	<td><%= available_time.custom_availabe_date || '-' %></td>
+	<td><%= available_time.from_time || '-' %></td>
+	<td><%= available_time.to_time || '-' %></td>
+	<td><%= available_time.no_available ? 'No' : 'Yes' %></td>
+	<td><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_available_doctor_time_path(available_time) %>
+		<%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, available_doctor_time_path(available_time), method: :delete, onclick: "return confirm('Are you sure you want to delete?');" %>
+	</td>
+</tr>

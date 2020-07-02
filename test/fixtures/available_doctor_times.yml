@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  custom_availabe_date: 2020-07-02
+  from_time: 2020-07-02 12:57:57
+  to_time: 2020-07-02 12:57:57
+  no_available: false
+  user: one
+
+two:
+  custom_availabe_date: 2020-07-02
+  from_time: 2020-07-02 12:57:57
+  to_time: 2020-07-02 12:57:57
+  no_available: false
+  user: two

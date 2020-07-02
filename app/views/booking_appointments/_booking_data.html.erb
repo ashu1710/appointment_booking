@@ -1,0 +1,9 @@
+<tr>
+	<td><%= booking.patient.try(:email) || '-' %></td>
+	<td><%= booking.booking_date || '-' %></td>
+	<td><%= booking.to_time %></td>
+	<td><%= booking.from_time %></td>
+	<td><%= booking.status ? 'Accepted' : 'Pending' %></td>
+	<td><%= link_to '<i class="fa fa-check" aria-hidden="true"></i>'.html_safe, change_status_path(booking) %>
+	</td>
+</tr>

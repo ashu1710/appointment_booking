@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient_id: 1
+  doctor_id: 1
+  booking_date: 2020-07-02
+  from_time: MyString
+  to_time: MyString
+  status: false
+
+two:
+  patient_id: 1
+  doctor_id: 1
+  booking_date: 2020-07-02
+  from_time: MyString
+  to_time: MyString
+  status: false

@@ -1,0 +1,76 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+      <h4 class='text-center'>Change Current Password</h4>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <div class="field">
+          <%= f.label :current_password %>
+          <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+        </div>
+
+        <div class="field mt-2">
+          <%= f.submit "Change Password", class: 'btn btn-success btn-change-password', data: { disable_with: false } %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-1"></div>
+    <div class= "col-md-5">
+      <table class="table">
+        <tr>
+          <td>Email</td>
+          <td><%= current_user.email %></td>
+        </tr>
+        <% if current_user.is_doctor? %>
+          <tr>
+            <td>Hospital Name</td>
+            <td><%= current_user.hospital_name %></td>
+          </tr>
+
+          <tr>
+            <td>Hospital Address</td>
+            <td><%= current_user.hospital_address %></td>
+          </tr>
+
+          <tr>
+            <td>Hospital mobile number</td>
+            <td><%= current_user.hospital_mobile_number %></td>
+          </tr>
+        <% end %>
+      </table>
+      <% if current_user.is_doctor? %>
+        <%= form_for(resource, as: resource_name, url: update_profile_path, html: { method: :put }) do |f| %>
+          <div class="field">
+            <%= f.label :hospital_name %>
+            <%= f.text_field :hospital_name, class: 'form-control'%>
+          </div>
+
+          <div class="field">
+            <%= f.label :hospital_address %>
+            <%= f.text_area :hospital_address, class: 'form-control', cols: 10, rows: 3 %>
+          </div>
+
+          <div class="field">
+            <%= f.label :hospital_mobile_number %>
+            <%= f.number_field :hospital_mobile_number, class: 'form-control' %>
+          </div>
+
+          <div class="field mt-2">
+            <%= f.submit "Update", class: 'btn btn-success', data: { disable_with: false } %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>
