@@ -24,7 +24,6 @@ gem 'toastr-rails'
 gem 'dotenv-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'jquery-validation-rails'
-gem 'bootstrap-datepicker-rails'
 gem 'jquery-timepicker-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'

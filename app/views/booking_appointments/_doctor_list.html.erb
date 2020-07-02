@@ -1,0 +1,10 @@
+<tr id=<%= doctor_deails.id %>>
+	<td><%= doctor_deails.email %></td>
+	<td><%= doctor_deails.hospital_name %></td>
+	<td><%= doctor_deails.hospital_address %></td>
+	<td><%= doctor_deails.hospital_mobile_number %></td>
+	<td><%= text_field_tag :custom_availabe_date, '', class: 'form-control set-date-picker' %></td>
+	<td><%= text_field_tag :from_time, '', class: 'form-control set-time-picker' %></td>
+	<td><%= text_field_tag :to_time, '', class: 'form-control set-time-picker' %></td>
+	<td><%= link_to 'Book', 'javascript:void(0)', class: 'btn btn-success booking_btn' %></td>
+</tr>

@@ -1,0 +1,7 @@
+<% if @booking_data.new_record? %>
+	toastr.error("<%= @booking_data.errors.messages[:to_time].join(", ") %>");
+<% else %>
+	$('.set-date-picker').val('');
+	$('.set-time-picker').val('');
+	toastr.success('Appointment Schedule Successfully.')
+<% end %> 

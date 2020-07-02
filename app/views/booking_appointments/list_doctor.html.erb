@@ -1,0 +1,19 @@
+<div class="container mt-3">
+  <div class="row">
+  	<table class="table datatables">
+  		<thead>
+        <th>Doctor Email address</th>
+        <th>Hospital Name</th>
+        <th>Hospital Address</th>
+        <th>Hospital Mobile no</th>
+        <th>Appointment Date</th>
+        <th>From Time</th>
+        <th>To Time</th>
+  			<th>Action</th>
+  		</thead>
+  		<tbody>
+			  <%= render partial: 'doctor_list', collection: @doctors, as: :doctor_deails %>
+  		</tbody>
+  	</table>
+  </div>
+</div>

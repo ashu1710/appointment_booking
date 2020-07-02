@@ -4,7 +4,7 @@
 			<div class="card" style="width: 18rem;">
 				<div class="card-body">
 					<h5 class="card-title">Total Doctor</h5>
-					<p class="card-text"><%= User.doctor_count %></p>
+					<p class="card-text"><%= User.doctors.count %></p>
 				</div>
 			</div>
 		</div>
@@ -21,7 +21,7 @@
 			<div class="card" style="width: 18rem;">
 				<div class="card-body">
 					<h5 class="card-title">Total Booking</h5>
-					<p class="card-text"><%= BookingAppointment.booking_count %></p>
+					<p class="card-text"><%= BookingAppointment.booking_count(current_user.id) %></p>
 				</div>
 			</div>
 		</div>

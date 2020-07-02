@@ -1,0 +1,11 @@
+<% if @availblity_doctor_time.present? %>
+	<% if @availblity_doctor_time.no_available %>
+		toastr.error("Please select different date because doctor not available.");
+		$("tr#<%= @availblity_doctor_time.user_id %>").find('.booking_btn').addClass('d-none');
+	<% else %>
+		$("tr#<%= @availblity_doctor_time.user_id %>").find('.booking_btn').removeClass('d-none');
+		$('.set-time-picker').timepicker('option',{'minTime': "<%= @availblity_doctor_time.from_time %>", 'maxTime': "<%= @availblity_doctor_time.to_time %>"});
+	<% end %>
+<% else %>
+	$('.booking_btn').removeClass('d-none');
+<% end %>

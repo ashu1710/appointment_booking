@@ -11,6 +11,6 @@ class User < ApplicationRecord
   ##scope
 
   scope :user_count, -> { where(is_doctor: false).count }
-  scope :doctor_count, -> { where(is_doctor: true).count }
+  scope :doctors, -> { where(is_doctor: true) }
 
 end

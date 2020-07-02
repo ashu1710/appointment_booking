@@ -1,14 +1,14 @@
 <div class="container mt-3">
   <div class="row">
-  	<%= link_to 'New', new_available_doctor_time_path, class: 'btn btn-success'%> 
   	<table class="table datatables">
   		<thead>
-  			<th>Patient Email address</th>
+        <th>Doctor email address</th>
+        <th>Hospital name</th>
+  			<th>Hospital mobile number</th>
         <th>Appointment Date</th>
   			<th>From Time</th>
   			<th>To Time</th>
   			<th>Status</th>
-  			<th>Action</th>
   		</thead>
   		<tbody>
 			<%= render partial:'booking_data', collection: @booking_data, as: :booking %>

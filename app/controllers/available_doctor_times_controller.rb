@@ -1,6 +1,7 @@
 class AvailableDoctorTimesController < ApplicationController
 	before_action :authenticate_user!
 	before_action :set_available_time, only: [:edit, :update, :destroy]
+	before_action :check_doctor
 	def index
 		@available_times = AvailableDoctorTime.all
 	end

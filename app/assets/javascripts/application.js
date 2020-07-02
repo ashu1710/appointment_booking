@@ -28,9 +28,9 @@
 
 $( document ).on('turbolinks:load', function() {
 	submitSignUpForm();
-    // setdatatables();
     displayTimeDate();
     signupFormRadioButton();
+    book_appointment();
  });
 
 function submitSignUpForm(){
@@ -109,12 +109,52 @@ function displayTimeDate(){
     {
         $('.set-time-picker').timepicker({
             'showDuration': true,
-            'timeFormat': 'g:ia'
+            'timeFormat': 'g:ia',
+            'minTime': '7:00am',
+            'maxTime': '5:00pm'
         });
 
-        $('#available_doctor_time_custom_availabe_date').datepicker({
-            'format': 'd/mm/yyyy',
+        $('.set-date-picker').datepicker({
+            'format': 'dd/mm/yyyy',
             'startDate': '-0m'
+        }).on('change', function(e) {
+            var doctorID = $(this).closest('tr').attr('id');
+            var selectedDate = $(this).val();
+            $.ajax({
+              url: "/check_doctor_avaibility",
+              type: "get",
+              dataType: 'script',
+              data: { doctor_id: doctorID, selected_date: selectedDate}
+            });
         });
     }
+}
+
+
+function book_appointment(){
+    $('.booking_btn').on('click', function(e){
+        var bookingDate = $(this).closest('tr').find('#custom_availabe_date').val();
+        var fromTime = $(this).closest('tr').find('#from_time').val();
+        var toTime = $(this).closest('tr').find('#to_time').val();
+        var doctorID = $(this).closest('tr').attr('id');
+
+        if(bookingDate == ''){
+            toastr.error("Select booking date.");
+        }
+        else if(fromTime == ''){
+            toastr.error("Select from time.");
+        }
+        else if(toTime == ''){
+            toastr.error("Select to time.");
+        }else{
+            $.ajax({
+                url: "/book_appointment",
+                type: "get",
+                dataType: 'script',
+                data: { booking_date: bookingDate, from_time: fromTime, to_time: toTime, doctor_id: doctorID}
+            });
+        }
+        
+    })
+    
 }
